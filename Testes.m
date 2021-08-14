@@ -13,7 +13,7 @@ func3 = @(x,y) 1-(y/x); % Terceira EDO
   xx = 0:0.1:1;
   xx3 = 1:0.1:2;
   
-fprintf('questao A')
+fprintf('questao A\n\n')
 fprintf('%10s | %10s | %10s | %10s | %10s | %10s | %10s \n', 'X','Euler', 'Euler Mel.', 'Euler Mod.', 'Fehlb12', 'Fehlb45', 'ODE45 fixo');
 fprintf('-------------------------------------------------------------------------------------------------------\n');
 
@@ -25,10 +25,10 @@ for i=1:length(xx)
   [X, D_a] = Fehlberg45(func1, x0, y0, h, n );
   passofixo = true;
   [X, E_a] = RungeKutta_Dormand_Prince_ode45(func1, x0, y0, h, n, passofixo );
-	fprintf('%10.6f | %10.6f | %10.6f | %10.6f | %10.6f | %10.6f | %10.6f \n', xx(i), Y(i), A(i), B(i), C(i), D(i), E(i));
+	fprintf('%10.6f | %10.6f | %10.6f | %10.6f | %10.6f | %10.6f | %10.6f \n', xx(i), Y_a(i), A_a(i), B_a(i), C_a(i), D_a(i), E_a(i));
 end
 
-fprintf('questao B');
+fprintf('\n\nquestao B\n\n');
 
 fprintf('%10s | %10s | %10s | %10s | %10s | %10s | %10s \n', 'X','Euler', 'Euler Mel.', 'Euler Mod.', 'Fehlb12', 'Fehlb45', 'ODE45 fixo');
 fprintf('-------------------------------------------------------------------------------------------------------\n');
@@ -44,7 +44,7 @@ for i=1:length(xx)
 	fprintf('%10.6f | %10.6f | %10.6f | %10.6f | %10.6f | %10.6f | %10.6f \n', xx(i), Y_b(i), A_b(i), B_b(i), C_b(i), D_b(i), E_b(i));
 end
 
-fprintf('questao C');
+fprintf('\n\nquestao C\n\n');
 
 fprintf('%10s | %10s | %10s | %10s | %10s | %10s | %10s \n', 'X','Euler', 'Euler Mel.', 'Euler Mod.', 'Fehlb12', 'Fehlb45', 'ODE45 fixo');
 fprintf('-------------------------------------------------------------------------------------------------------\n');
