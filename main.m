@@ -48,10 +48,10 @@ printTabXY( X, 'X', Y, 'Y', f, 'Euler Melhorado');
 [X, Y] = EulerModificado(func1, x0, y0, h, n );
 printTabXY( X, 'X', Y, 'Y', f, 'Euler Modificado');
 
-[X, Y, YLow] = Fehlberg12(func1, x0, y0, h, n );
+[X, Y] = Fehlberg12(func1, x0, y0, h, n );
 printTabXY( X, 'X', Y, 'Y', f, 'Fehlberg RK(1)2')
 
-[X, Y, YLow] = Fehlberg45(func1, x0, y0, h, n );
+[X, Y] = Fehlberg45(func1, x0, y0, h, n );
 printTabXY( X, 'X', Y, 'Y', f, 'Fehlberg RK(4)5')
 
 passofixo = true;
