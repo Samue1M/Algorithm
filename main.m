@@ -88,8 +88,8 @@ for i=1:length(x)
   [X, Y] = Euler(func1, x0, y0, h, n );
   [X, A] = EulerMelhorado(func1, x0, y0, h, n );
   [X, B] = EulerModificado(func1, x0, y0, h, n );
-  [X, C, YLow] = Fehlberg12(func1, x0, y0, h, n );
-  [X, D, YLow] = Fehlberg45(func1, x0, y0, h, n );
+  [X, C] = Fehlberg12(func1, x0, y0, h, n );
+  [X, D] = Fehlberg45(func1, x0, y0, h, n );
   passofixo = true;
   [X, E] = RungeKutta_Dormand_Prince_ode45(func1, x0, y0, h, n, passofixo );
 	fprintf('%10.6f | %10.6f | %10.6f | %10.6f | %10.6f | %10.6f | %10.6f \n', x(i), Y(i), A(i), B(i), C(i), D(i), E(i));
