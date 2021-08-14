@@ -110,4 +110,4 @@ ylabel('y','fontsize',20);
 legend('a)y*log(x+1)','b)y*(x**2 -1)','c)1-(y/x)','location','northeast');
 hold on;
 
-%ITS JOHN FROM BR TOP 2999 CAMILLE BR, MELHOR QUE O TOP 3000 OK? DMR.
+
