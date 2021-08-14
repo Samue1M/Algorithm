@@ -76,4 +76,4 @@ end
   legend('Euler','EulerMelhorado','EulerModificado','Fehlberg12','Fehlberg45','DormanPriceODE45FIXO','DormanPriceODE45APDT','location','northwest');
   hold on;
   
- %----------FIM QUESTAO 3
+ %----------FIM QUESTAO 3\\
