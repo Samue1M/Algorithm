@@ -1,7 +1,7 @@
 %%% https://en.wikipedia.org/wiki/Runge–Kutta–Fehlberg_method 
 %%% Implementing an RK4(5) Algorithm
 
-function [X, Y, YLow] = Fehlberg45(f, x0, y0, h, n )
+function [X, Y] = Fehlberg45(f, x0, y0, h, n )
 
 %%% The Fehlberg method has five methods of orders 4 and 
 
@@ -26,5 +26,5 @@ function [X, Y, YLow] = Fehlberg45(f, x0, y0, h, n )
     butcher.b = [16.0/135 0 6656.0/12825 28561.0/56430 -9.0/50 2.0/55];
     butcher.bstar = [25.0/216 0 1408.0/2565 2197.0/4104 -1.0/5 0]; 
     butcher.c = [0 1.0/4 3.0/8 12.0/13 1.0 1.0/2];
-    [X, Y, YLow] = RungeKutta(f, x0, y0, h, n, butcher, s );
+    [X, Y] = RungeKutta(f, x0, y0, h, n, butcher, s );
 end	
