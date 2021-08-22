@@ -4,9 +4,8 @@
 %%%%          ADICIONADO DOIS AMBIENTES DE TESTE O Testes QUE JÁ TINHA E O test PARA MELHOR FLEXIBILIDADE.COM ISSO FORAM EXCLUIDOS OS ARQUIVOS q3 E O PLOT_TABELA_TEST
 %%%%          MELHORIAS NA VISUALIZAÇÃO DO CODE E PLOTAGEM.
 %%%%          ACERTOS NO CODIGO NAS QUESTOES 3, 5, 6, 7.
-%%%5
-%%%%          PROBLEMAS NO PLOT GRAFICO, QUANDO JUNTO A Q3 E Q5 O ULTIMO GRADICO DA Q3 BUGA E NÃO PLOTA, OU SE PLOTA, PLOTA JUNTO COM A A DA Q5.
-%%%%          PROBLEMAS AINDA NA Q5 NO ULTIMO PVI O PLOT ESTÁ ESTRANHO .
+%%%%
+%%%%
 %%%%          PROBLEMAS NA QUESTAO 6, O MODULO DO ERRO NÃO ESTÁ FUNCIONANDO, APENAS DO PLOT ESTA CERTO FICA DANDO MENSAGENS NA JANELA DE COMANDO,POIS O NUMERO DA NEGATIVO E NÃO EXISTE LOG NEGATIVO.
 %%%%          PROBLEMAS NA QUESTÃO 6, NÃO CONSEGUI RESOLVER O PROBLEMA DO ODE45 PASSO ADPT O NÃO ESTÁ PLOTANDO.
 %%%%          
@@ -269,7 +268,7 @@ for i=1:length(x)
   passofixo = false;
   [X_adpt_a, F_adpt_a] = RungeKutta_Dormand_Prince_ode45(func1, x0, y0, h, n, passofixo );
 end
-  
+  figure
   hold off;
   plot(x,funcv1(X),'--m','linewidth',3,x,Y_a,'*-k', x,A_a,'-r','linewidth',2,  x,B_a,'-db',  x,C_a,'--py','linewidth',2,  x,D_a,'*d',  x,E_a,'+g','linewidth',2, X_adpt_a, F_adpt_a,'-oc');
   title("PVI : y' = ln(x + 1), com x0=0,y0=1",'fontsize',20)
@@ -319,15 +318,6 @@ for i=1:length(xx3)
   [X_adpt_c, F_adpt_c] = RungeKutta_Dormand_Prince_ode45(func3, x0_c, y0, h, n, passofixo );
 end
 
-  
-  %%%               -----______-----______-----______DANGER_____-----______-----______
-  
-  
-  %%%         plot(x,funcv3(x),'--m');
-  %%%         Resultado não está batendo, embora a função esteja certa
-  %%%         testes feito solo prova que está certo, algum erro que não consigo ver depois do for acontece     
-  
-  
 figure
 plot(xx3,funcv3(xx3),'--m',xx3,Y_c,'--*k', xx3,A_c,'-r',  xx3,B_c,'--b','linewidth',2,  xx3,C_c,'--y','linewidth',2,  xx3,D_c,'--*d',  xx3,E_c,'--g','linewidth',3, X_adpt_c, F_adpt_c,'-oc');
 title("PVI : y’=1-y/x, com x0=1,y0=0",'fontsize',20)
