@@ -553,3 +553,32 @@ for i=1:length(xx3)
 	fprintf('%.6f | %.6e | %.6e | %.6e | %.6e | %.6e | %.6e | %.6e \n', xx3(i), abs(funcv3(X(i))-funcv3(X(i))), abs(funcv3(X(i))-Y_c(i)), abs(funcv3(X(i))-A_c(i)), abs(funcv3(X(i))-B_c(i)), abs(funcv3(X(i))-C_c(i)), abs(funcv3(X(i))-D_c(i)), abs(funcv3(X(i))-E_c(i)));
 end
 
+
+
+%------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\
+
+
+
+printf ('\n\n\nSolução da Questão prática: Determinaremos a tensao Vc(t) por todos os metodos ja usados neste trabalho:\n\n');
+
+
+%Dados iniciais
+  V_ac= @(t) abs(18*cos(120*pi*t));
+  Vc_rms= @(t,v) ifelse(v<=V_ac(t)-2, (25*V_ac(t)-50.1-25*v)/100e-6, -0.1/(100e-6));
+  Vct = @(t,v) Vc_rms(t,v);
+
+[t_euler,y_euler] = Euler(Vct,0,16, 1/200000, 10000);
+[t_emelhorado,y_emelhorado] = EulerMelhorado(Vct,0,16, 1/200000, 10000);
+[t_emodify,y_emodify] = EulerModificado(Vct,0,16, 1/200000, 10000);
+[t_f12,y_f12] = Fehlberg12(Vct,0,16, 1/200000, 10000);
+[t_f45,y_f45] = Fehlberg45(Vct,0,16, 1/200000, 10000);
+passofixo=true;
+[t_DPfixo,y_DPfixo] = RungeKutta_Dormand_Prince_ode45(Vct,0,16, 1/200000, 10000, passofixo);
+passofixo=false;
+[t_DPadpt,y_DPadpt] = RungeKutta_Dormand_Prince_ode45(Vct,0,16, 1/200000, 10000, passofixo);
+
+figure;
+plot(t_euler,y_euler,'--ob','markersize',1,  t_emelhorado,y_emelhorado,'--*k','markersize',1,  t_emodify,y_emodify,'-xm','markersize',1,  t_f12,y_f12, '--*b','markersize',1, t_f45,y_f45,'-*m','markersize',1,  t_DPfixo, y_DPfixo,':+c','markersize',1,  t_DPadpt,y_DPadpt,'-vr','markersize',1);                  
+legend('Euler','EulerMelhorado','EulerModificado','Fehlberg12','Fehlberg45','DormanPriceODE45FIXO','DormanPriceODE45ADPT','location','northwest');
+hold on;
+grid on;
