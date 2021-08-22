@@ -84,15 +84,6 @@ for i=1:length(xx3)
   [X_adpt_c, F_adpt_c] = RungeKutta_Dormand_Prince_ode45(func3, x0_c, y0, h, n, passofixo );
 end
 
-  
-  %%%               -----______-----______-----______DANGER_____-----______-----______
-  
-  
-  %%%         plot(x,funcv3(x),'--m');
-  %%%         Resultado não está batendo, embora a função esteja certa
-  %%%         testes feito solo prova que está certo, algum erro que não consigo ver depois do for acontece     
-  
-  
 figure
 plot(xx3,funcv3(xx3),'--m',xx3,Y_c,'--*k', xx3,A_c,'-r',  xx3,B_c,'--b','linewidth',2,  xx3,C_c,'--y','linewidth',2,  xx3,D_c,'--*d',  xx3,E_c,'--g','linewidth',3, X_adpt_c, F_adpt_c,'-oc');
 title("PVI : y’=1-y/x, com x0=1,y0=0",'fontsize',20)

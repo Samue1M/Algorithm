@@ -33,7 +33,7 @@ for i=1:length(x)
   [X_adpt_a, F_adpt_a] = RungeKutta_Dormand_Prince_ode45(func1, x0, y0, h, n, passofixo );
 end
 
-  semilogy(x,funcv1(X)-Y_a,'*-k', x,funcv1(X)-A_a,'-r','linewidth',2,  x,funcv1(X)-B_a,'-db',  x,funcv1(X)-C_a,'--py','linewidth',2,  x,funcv1(X)-D_a,'*d',  x,funcv1(X)-E_a,'-+g');%, X_adpt_a, funcv1(X)-F_adpt_a,'-oc');   ------RESOLVER-----
+  semilogy(x,funcv1(X)-Y_a,'*-k', x,funcv1(X)-A_a,'-r','linewidth',2,  x,funcv1(X)-B_a,'-db',  x,funcv1(X)-C_a,'--py','linewidth',2,  x,funcv1(X)-D_a,'*d',  x,funcv1(X)-E_a,'-+g', X_adpt_a, funcv1(X_adpt_a)-F_adpt_a,'-oc'); 
   title("PVI : y' = ln(x + 1), com x0=0,y0=1",'fontsize',20)
   xlabel('x','fontsize',20);
   ylabel('y','fontsize',20);
@@ -57,8 +57,7 @@ for i=1:length(x)
   [X_adpt_b, F_adpt_b] = RungeKutta_Dormand_Prince_ode45(func2, x0, y0, h, n, passofixo );
 end
   figure
-
-  semilogy(x, abs(funcv2(X)-Y_b),'*-k', x,abs(funcv2(X)-A_b),'-r','linewidth',2,  x,abs(funcv2(X)-B_b),'-db',  x,abs(funcv2(X)-C_b),'--py','linewidth',2,  x,abs(funcv2(X)-D_b),'*d',  x,abs(funcv2(X)-E_b),'-+g');%, X_adpt_b,abs(funcv2(X)-F_adpt_b),'-oc');    ------RESOLVER-----   
+  semilogy(x, abs(funcv2(X)-Y_b),'*-k', x,abs(funcv2(X)-A_b),'-r','linewidth',2,  x,abs(funcv2(X)-B_b),'-db',  x,abs(funcv2(X)-C_b),'--py','linewidth',2,  x,abs(funcv2(X)-D_b),'*d',  x,abs(funcv2(X)-E_b),'-+g', X_adpt_b,abs(funcv2(X_adpt_b)-F_adpt_b),'-oc');    
   title("PVI : y’=y*(x²-1), com x0=0,y0=1",'fontsize',20)
   xlabel('x','fontsize',20);
   ylabel('y','fontsize',20);
@@ -67,10 +66,8 @@ end
   hold on;
  
 
- 
 %%%% _ - _ - __ - _ - __ - _ - _Terceira Função_ - _ - __ - _ - __ - _ - _
 
-x = 1:0.1:2;
 
 for i=1:length(xx3)
   [X, Y_c] = Euler(func3, x0_c, y0, h, n );
@@ -84,8 +81,8 @@ for i=1:length(xx3)
   [X_adpt_c, F_adpt_c] = RungeKutta_Dormand_Prince_ode45(func3, x0_c, y0, h, n, passofixo );
 end
 
-figure
-  semilogy(xx3,funcv3(x)-Y_c,'-*k', xx3,funcv3(x)-A_c,'-r','linewidth',2,  xx3,funcv3(x)-B_c,'-db',  xx3,funcv3(x)-C_c,'--py',  xx3,funcv3(x)-D_c,'*d',  xx3,funcv3(x)-E_c,'-+g');%, X_adpt_c, funcv3(x)-F_adpt_c,'-oc');     ------RESOLVER-----
+  figure
+  semilogy(xx3,funcv3(x)-Y_c,'-*k', xx3,funcv3(x)-A_c,'-r','linewidth',2,  xx3,funcv3(x)-B_c,'-db',  xx3,funcv3(x)-C_c,'--py',  xx3,funcv3(x)-D_c,'*d',  xx3,funcv3(x)-E_c,'-+g', X_adpt_c, funcv3(X_adpt_c)-F_adpt_c,'-oc');  
   title("PVI : y’=1-y/x, com x0=1,y0=0",'fontsize',20)
   xlabel('x','fontsize',20);
   ylabel('y','fontsize',20);
