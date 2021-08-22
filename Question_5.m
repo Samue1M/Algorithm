@@ -34,6 +34,7 @@ for i=1:length(x)
   [X_adpt_a, F_adpt_a] = RungeKutta_Dormand_Prince_ode45(func1, x0, y0, h, n, passofixo );
 end
   
+  figure
   hold off;
   plot(x,funcv1(X),'--m','linewidth',3,x,Y_a,'*-k', x,A_a,'-r','linewidth',2,  x,B_a,'-db',  x,C_a,'--py','linewidth',2,  x,D_a,'*d',  x,E_a,'+g','linewidth',2, X_adpt_a, F_adpt_a,'-oc');
   title("PVI : y' = ln(x + 1), com x0=0,y0=1",'fontsize',20)
