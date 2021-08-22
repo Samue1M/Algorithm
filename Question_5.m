@@ -58,6 +58,7 @@ for i=1:length(x)
   passofixo = false;
   [X_adpt_b, F_adpt_b] = RungeKutta_Dormand_Prince_ode45(func2, x0, y0, h, n, passofixo );
 end
+
   figure
   plot(x,funcv2(x),'--m','linewidth',3,x,Y_b,'*-k', x,A_b,'-r','linewidth',2,  x,B_b,'-db',  x,C_b,'--py','linewidth',2,  x,D_b,'*d',  x,E_b,'+g','linewidth',2, X_adpt_b, F_adpt_b,'-oc');
   title("PVI : y’=y*(x²-1), com x0=0,y0=1",'fontsize',20)
