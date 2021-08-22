@@ -1,12 +1,12 @@
-%%%%                                                  NOTAS DE ATUALIZAÇÃO!!!!
+%%%%                                                  NOTAS DE ATUALIZAÃ‡ÃƒO!!!
 %%%%
 %%%%         FINALIZADA!!!
-%%%%         CADA QUESTÃO FOI ADICIONADA COMO UM SCRIPT PRÓPRIO PRA FACILIAR O TRABALHO
-%%%%         MELHORIA NA VIZUALIZAÇÃO E PLOTAGEM DO CODIGO
-%%%%     
+%%%%         CADA QUESTÃƒO FOI ADICIONADA COMO UM SCRIPT PRÃ“PRIO PRA FACILIAR O TRABALHO
+%%%%         MELHORIA NA VIZUALIZAÃ‡ÃƒO E PLOTAGEM DO CODIGO
+%%%%         ADICIONADA FUNÃ‡ÃƒO Practical_Problem 
+%%%%
 
-
-fprintf('Solução da Questão 1 : Determine a soluç˜ao analítica y(x) de cada PVI. \n\n');
+fprintf('SoluÃ§Ã£o da QuestÃ£o 1 : Determine a soluÃ§Ëœao analÃ­tica y(x) de cada PVI. \n\n');
 
 %[f, sol, PVIstr, yx, yxstr] = solveEDO('y*log(x+1)', 0, 1) 
 [f, sol, PVIstr] = solveEDO('y*log(x+1)', 0, 1) 
@@ -21,7 +21,7 @@ fprintf('Solução da Questão 1 : Determine a soluç˜ao analítica y(x) de cada PVI.
 %------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\
 
 
-fprintf ('\n\nSolução da Questão 2 : Converta a soluç˜ao em uma função n˜ao-simbólica.\n\n');
+fprintf ('\n\nSoluÃ§Ã£o da QuestÃ£o 2 : Converta a soluÃ§Ëœao em uma funÃ§Ã£o nËœao-simbÃ³lica.\n\n');
 
 
 [~, ~, ~, yx, yxstr] = solveEDO('y*log(x+1)', 0, 1) 
@@ -34,7 +34,7 @@ fprintf ('\n\nSolução da Questão 2 : Converta a soluç˜ao em uma função n˜ao-simb
 %------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\
 
 
-fprintf ('\n\nSolução da Questão 3 : Discretize a variável independente a partir de x0, calcule o valor da funç˜ao analítica e desenhe:.\n\n');
+fprintf ('\n\nSoluÃ§Ã£o da QuestÃ£o 3 : Discretize a variÃ¡vel independente a partir de x0, calcule o valor da funÃ§Ëœao analÃ­tica e desenhe:.\n\n');
 
 
 func1 = @(x,y) y*log(x+1); % Primeira EDO
@@ -51,7 +51,7 @@ func3 = @(x,y) 1-(y/x); % Terceira EDO
   xx3 = 1:0.1:2;
   
   
-%%%_ - _ - __ - _ - __ - _ - _Primeira Função_ - _ - __ - _ - __ - _ - _
+%%%_ - _ - __ - _ - __ - _ - _Primeira FunÃ§Ã£o_ - _ - __ - _ - __ - _ - _
 
 
 for i=1:length(xx)
@@ -75,7 +75,7 @@ end
   hold on;
   
   
-%%%_ - _ - __ - _ - __ - _ - _Segunda Função_ - _ - __ - _ - __ - _ - _
+%%%_ - _ - __ - _ - __ - _ - _Segunda FunÃ§Ã£o_ - _ - __ - _ - __ - _ - _
 
 
 for i=1:length(xx)
@@ -91,7 +91,7 @@ for i=1:length(xx)
 end
   figure
   plot(xx,Y_b,'--*k', xx,A_b,'-r',  xx,B_b,'--b','linewidth',2,  xx,C_b,'--y','linewidth',2,  xx,D_b,'--*d',  xx,E_b,'--g','linewidth',3, X_adpt_b, F_adpt_b,'--*m');
-  title("PVI : y’=y*(x²-1), com x0=0,y0=1",'fontsize',20)
+  title("PVI : yâ€™=y*(xÂ²-1), com x0=0,y0=1",'fontsize',20)
   xlabel('x','fontsize',20);
   ylabel('y','fontsize',20);
   grid on;
@@ -99,7 +99,7 @@ end
   hold on;
 
 
-%%%% _ - _ - __ - _ - __ - _ - _Terceira Função_ - _ - __ - _ - __ - _ - _
+%%%% _ - _ - __ - _ - __ - _ - _Terceira FunÃ§Ã£o_ - _ - __ - _ - __ - _ - _
 
 
 for i=1:length(xx)
@@ -115,7 +115,7 @@ for i=1:length(xx)
 end
   figure
   plot(xx3,Y_c,'--*k', xx3,A_c,'-r',  xx3,B_c,'--b','linewidth',2,  xx3,C_c,'--y','linewidth',2,  xx3,D_c,'--*d',  xx3,E_c,'--g','linewidth',3, X_adpt_c, F_adpt_c,'--*m');
-  title("PVI : y’=1-y/x, com x0=1,y0=1",'fontsize',20)
+  title("PVI : yâ€™=1-y/x, com x0=1,y0=1",'fontsize',20)
   xlabel('x','fontsize',20);
   ylabel('y','fontsize',20);
   grid on;
@@ -126,7 +126,7 @@ end
 %------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\
 
 
-fprintf ('\n\nSolução da Questão 4 : Calcule as aproximações da solução analítica, usando os seguintes métodos:\n\n'); 
+fprintf ('\n\nSoluÃ§Ã£o da QuestÃ£o 4 : Calcule as aproximaÃ§Ãµes da soluÃ§Ã£o analÃ­tica, usando os seguintes mÃ©todos:\n\n'); 
 
 
 func1 = @(x,y) y*log(x+1); % Primeira EDO
@@ -228,15 +228,15 @@ printTabXY( X, 'X', Y, 'Y', f, 'Dormand-Prince - Passo adaptativo' );
 
 
 
-fprintf ('\n\nSolução da Questão 5 : Insira os pontos (xi, yi) de cada método no gráfico junto com a funç˜ao verdadeira y(x) :\n\n');
+fprintf ('\n\nSoluÃ§Ã£o da QuestÃ£o 5 : Insira os pontos (xi, yi) de cada mÃ©todo no grÃ¡fico junto com a funÃ§Ëœao verdadeira y(x) :\n\n');
 
 
 func1 = @(x,y) y*log(x+1); % Primeira EDO
-funcv1 = @(x) (x + 1) .* exp (x .* (log (x + 1) - 1)); %Solução analitica não simbolica primeira EDO
+funcv1 = @(x) (x + 1) .* exp (x .* (log (x + 1) - 1)); %SoluÃ§Ã£o analitica nÃ£o simbolica primeira EDO
 func2 = @(x,y) y*(x**2 -1); % Segunda EDO
-funcv2 = @(x) exp (x .* (x .^ 2 - 3) / 3);%Solução analitica não simbolica segunda EDO
+funcv2 = @(x) exp (x .* (x .^ 2 - 3) / 3);%SoluÃ§Ã£o analitica nÃ£o simbolica segunda EDO
 func3 = @(x,y) 1-(y/x); % Terceira EDO
-funcv3 = @(x) x / 2; %Solução analitica não simbolica terceira EDO
+funcv3 = @(x) x / 2; %SoluÃ§Ã£o analitica nÃ£o simbolica terceira EDO
 
   x0 = 0;
   y0 = 1;
@@ -248,7 +248,7 @@ funcv3 = @(x) x / 2; %Solução analitica não simbolica terceira EDO
   xx3 = 1:0.1:2;
   
   
-%%%_ - _ - __ - _ - __ - _ - _Primeira Função_ - _ - __ - _ - __ - _ - _
+%%%_ - _ - __ - _ - __ - _ - _Primeira FunÃ§Ã£o_ - _ - __ - _ - __ - _ - _
 
 
 for i=1:length(x)
@@ -264,7 +264,6 @@ for i=1:length(x)
 end
   
   figure
-  hold off;
   plot(x,funcv1(X),'--m','linewidth',3,x,Y_a,'*-k', x,A_a,'-r','linewidth',2,  x,B_a,'-db',  x,C_a,'--py','linewidth',2,  x,D_a,'*d',  x,E_a,'+g','linewidth',2, X_adpt_a, F_adpt_a,'-oc');
   title("PVI : y' = ln(x + 1), com x0=0,y0=1",'fontsize',20)
   xlabel('x','fontsize',20);
@@ -274,7 +273,7 @@ end
   hold on;
 
 
-%%%_ - _ - __ - _ - __ - _ - _Segunda Função_ - _ - __ - _ - __ - _ - _
+%%%_ - _ - __ - _ - __ - _ - _Segunda FunÃ§Ã£o_ - _ - __ - _ - __ - _ - _
 
 
 for i=1:length(x)
@@ -291,7 +290,7 @@ end
 
   figure
   plot(x,funcv2(x),'--m','linewidth',3,x,Y_b,'*-k', x,A_b,'-r','linewidth',2,  x,B_b,'-db',  x,C_b,'--py','linewidth',2,  x,D_b,'*d',  x,E_b,'+g','linewidth',2, X_adpt_b, F_adpt_b,'-oc');
-  title("PVI : y’=y*(x²-1), com x0=0,y0=1",'fontsize',20)
+  title("PVI : yâ€™=y*(xÂ²-1), com x0=0,y0=1",'fontsize',20)
   xlabel('x','fontsize',20);
   ylabel('y','fontsize',20);
   grid on;
@@ -299,7 +298,7 @@ end
   hold on;
 
 
-%%%% _ - _ - __ - _ - __ - _ - _Terceira Função_ - _ - __ - _ - __ - _ - _
+%%%% _ - _ - __ - _ - __ - _ - _Terceira FunÃ§Ã£o_ - _ - __ - _ - __ - _ - _
 
 
 for i=1:length(xx3)
@@ -316,7 +315,7 @@ end
 
 figure
 plot(xx3,funcv3(xx3),'--m',xx3,Y_c,'--*k', xx3,A_c,'-r',  xx3,B_c,'--b','linewidth',2,  xx3,C_c,'--y','linewidth',2,  xx3,D_c,'--*d',  xx3,E_c,'--g','linewidth',3, X_adpt_c, F_adpt_c,'-oc');
-title("PVI : y’=1-y/x, com x0=1,y0=0",'fontsize',20)
+title("PVI : yâ€™=1-y/x, com x0=1,y0=0",'fontsize',20)
 xlabel('x','fontsize',20);
 ylabel('y','fontsize',20);
 grid on;
@@ -329,15 +328,15 @@ hold on;
 
 
 
-fprintf ('\n\nSolução da Questão 6 : Gere um no gráfico de erros de cada método relativo à funç˜ao verdadeira y(x), com eixo y logarítmic:.\n\n');
+fprintf ('\n\nSoluÃ§Ã£o da QuestÃ£o 6 : Gere um no grÃ¡fico de erros de cada mÃ©todo relativo Ã  funÃ§Ëœao verdadeira y(x), com eixo y logarÃ­tmic:.\n\n');
 
 
 func1 = @(x,y) y*log(x+1); % Primeira EDO
-funcv1 = @(x) (x + 1) .* exp (x .* (log (x + 1) - 1)); %Solução analitica não simbolica primeira EDO
+funcv1 = @(x) (x + 1) .* exp (x .* (log (x + 1) - 1)); %SoluÃ§Ã£o analitica nÃ£o simbolica primeira EDO
 func2 = @(x,y) y*(x**2 -1); % Segunda EDO
-funcv2 = @(x) exp (x .* (x .^ 2 - 3) / 3);%Solução analitica não simbolica segunda EDO
+funcv2 = @(x) exp (x .* (x .^ 2 - 3) / 3);%SoluÃ§Ã£o analitica nÃ£o simbolica segunda EDO
 func3 = @(x,y) 1-(y/x); % Terceira EDO
-funcv3 = @(x) x / 2; %Solução analitica não simbolica terceira EDO
+funcv3 = @(x) x / 2; %SoluÃ§Ã£o analitica nÃ£o simbolica terceira EDO
 
   x0 = 0;
   y0 = 1;
@@ -348,7 +347,7 @@ funcv3 = @(x) x / 2; %Solução analitica não simbolica terceira EDO
   x = 0:0.1:1;
   xx3 = 1:0.1:2;
   
-%%%_ - _ - __ - _ - __ - _ - _Primeira Função_ - _ - __ - _ - __ - _ - _
+%%%_ - _ - __ - _ - __ - _ - _Primeira FunÃ§Ã£o_ - _ - __ - _ - __ - _ - _
 
 
 for i=1:length(x)
@@ -373,7 +372,7 @@ end
   hold on;
 
 
-%%%_ - _ - __ - _ - __ - _ - _Segunda Função_ - _ - __ - _ - __ - _ - _
+%%%_ - _ - __ - _ - __ - _ - _Segunda FunÃ§Ã£o_ - _ - __ - _ - __ - _ - _
 
 
 for i=1:length(x)
@@ -390,7 +389,7 @@ end
 
   figure
   semilogy(x, abs(funcv2(X)-Y_b),'*-k', x,abs(funcv2(X)-A_b),'-r','linewidth',2,  x,abs(funcv2(X)-B_b),'-db',  x,abs(funcv2(X)-C_b),'--py','linewidth',2,  x,abs(funcv2(X)-D_b),'*d',  x,abs(funcv2(X)-E_b),'-+g', X_adpt_b,abs(funcv2(X_adpt_b)-F_adpt_b),'-oc');    
-  title("PVI : y’=y*(x²-1), com x0=0,y0=1",'fontsize',20)
+  title("PVI : yâ€™=y*(xÂ²-1), com x0=0,y0=1",'fontsize',20)
   xlabel('x','fontsize',20);
   ylabel('y','fontsize',20);
   grid on;
@@ -398,7 +397,7 @@ end
   hold on;
  
 
-%%%% _ - _ - __ - _ - __ - _ - _Terceira Função_ - _ - __ - _ - __ - _ - _
+%%%% _ - _ - __ - _ - __ - _ - _Terceira FunÃ§Ã£o_ - _ - __ - _ - __ - _ - _
 
 
 for i=1:length(xx3)
@@ -415,7 +414,7 @@ end
 
   figure
   semilogy(xx3,funcv3(x)-Y_c,'-*k', xx3,funcv3(x)-A_c,'-r','linewidth',2,  xx3,funcv3(x)-B_c,'-db',  xx3,funcv3(x)-C_c,'--py',  xx3,funcv3(x)-D_c,'*d',  xx3,funcv3(x)-E_c,'-+g', X_adpt_c, funcv3(X_adpt_c)-F_adpt_c,'-oc');  
-  title("PVI : y’=1-y/x, com x0=1,y0=0",'fontsize',20)
+  title("PVI : yâ€™=1-y/x, com x0=1,y0=0",'fontsize',20)
   xlabel('x','fontsize',20);
   ylabel('y','fontsize',20);
   grid on;
@@ -427,15 +426,16 @@ end
 %------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\
 
  
-printf ('\n\n\nSolução da Questão 7 e 8: Mostre uma tabela com os valores de cada método junto com seus respectivos erros:\n\n');
+
+printf ('\n\n\nSoluÃ§Ã£o da QuestÃ£o 7 e 8: Mostre uma tabela com os valores de cada mÃ©todo e seus erros respectivamente: \n\n');
 
 
 func1 = @(x,y) y*log(x+1); % Primeira EDO
-funcv1 = @(x) (x + 1) .* exp (x .* (log (x + 1) - 1)); %Solução analitica não simbolica primeira EDO
+funcv1 = @(x) (x + 1) .* exp (x .* (log (x + 1) - 1)); %SoluÃ§Ã£o analitica nÃ£o simbolica primeira EDO
 func2 = @(x,y) y*(x**2 -1); % Segunda EDO
-funcv2 = @(x) exp (x .* (x .^ 2 - 3) / 3);%Solução analitica não simbolica segunda EDO
+funcv2 = @(x) exp (x .* (x .^ 2 - 3) / 3);%SoluÃ§Ã£o analitica nÃ£o simbolica segunda EDO
 func3 = @(x,y) 1-(y/x); % Terceira EDO
-funcv3 = @(x) x / 2; %Solução analitica não simbolica terceira EDO
+funcv3 = @(x) x / 2; %SoluÃ§Ã£o analitica nÃ£o simbolica terceira EDO
 
 
   x0 = 0;
@@ -448,7 +448,7 @@ funcv3 = @(x) x / 2; %Solução analitica não simbolica terceira EDO
   xx3 = 1:0.1:2;
  
 
-%%%_ - _ - __ - _ - __ - _ - _Primeira Função_ - _ - __ - _ - __ - _ - _
+%%%_ - _ - __ - _ - __ - _ - _Primeira FunÃ§Ã£o_ - _ - __ - _ - __ - _ - _
 
  
 fprintf('PVI: ===> Funcao: y(x)= (x + 1) .* exp (x .* (log (x + 1) - 1))\n\n')
@@ -483,7 +483,7 @@ for i=1:length(xx)
 end
 
 
-%%%_ - _ - __ - _ - __ - _ - _Segunda Função_ - _ - __ - _ - __ - _ - _
+%%%_ - _ - __ - _ - __ - _ - _Segunda FunÃ§Ã£o_ - _ - __ - _ - __ - _ - _
 
 
 fprintf('\n\n\nPVI: ===> Funcao: y(x)= exp (x .* (x .^ 2 - 3) / 3)\n\n');
@@ -519,7 +519,7 @@ end
 
 
 
-%%%% _ - _ - __ - _ - __ - _ - _Terceira Função_ - _ - __ - _ - __ - _ - _
+%%%% _ - _ - __ - _ - __ - _ - _Terceira FunÃ§Ã£o_ - _ - __ - _ - __ - _ - _
 
 
 fprintf('\n\nPVI: ===> Funcao: y(x)= x / 2\n\n');
@@ -558,27 +558,40 @@ end
 %------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\
 
 
+fprintf("Problema Pratico: : Use todos os mÃ©todos de resoluÃ§Ëœao de uma EDO da parte teÃ³rica deste trabalho para determinar a tensËœao Vc(t).")
 
-printf ('\n\n\nSolução da Questão prática: Determinaremos a tensao Vc(t) por todos os metodos ja usados neste trabalho:\n\n');
+
+Vac= @(t) abs(18*cos(120*pi*t));
+Vc_rms= @(t,v) ifelse(v<=Vac(t)-2, (25*Vac(t)-50.1-25*v)/100e-6, -0.1/(100e-6));
+Vct = @(t,v) Vc_rms(t,v);
 
 
-%Dados iniciais
-  V_ac= @(t) abs(18*cos(120*pi*t));
-  Vc_rms= @(t,v) ifelse(v<=V_ac(t)-2, (25*V_ac(t)-50.1-25*v)/100e-6, -0.1/(100e-6));
-  Vct = @(t,v) Vc_rms(t,v);
+x0 = 0;
+y0 = 16;
+h = 1/200000;
+n = 10000;
 
-[t_euler,y_euler] = Euler(Vct,0,16, 1/200000, 10000);
-[t_emelhorado,y_emelhorado] = EulerMelhorado(Vct,0,16, 1/200000, 10000);
-[t_emodify,y_emodify] = EulerModificado(Vct,0,16, 1/200000, 10000);
-[t_f12,y_f12] = Fehlberg12(Vct,0,16, 1/200000, 10000);
-[t_f45,y_f45] = Fehlberg45(Vct,0,16, 1/200000, 10000);
+[T_e,Y_e] = Euler(Vct,x0,y0, h, n);
+[T_eme,Y_eme] = EulerMelhorado(Vct,x0,y0, h, n);
+[T_emo,Y_emo] = EulerModificado(Vct,x0,y0, h, n);
+[T_fb12,Y_fb12] = Fehlberg12(Vct,x0,y0, h, n);
+[T_fb45,Y_fb45] = Fehlberg45(Vct,x0,y0, h, n);
 passofixo=true;
-[t_DPfixo,y_DPfixo] = RungeKutta_Dormand_Prince_ode45(Vct,0,16, 1/200000, 10000, passofixo);
+[T_DPfixo,Y_DPfixo] = RungeKutta_Dormand_Prince_ode45(Vct,x0,y0, h, n, passofixo);
 passofixo=false;
-[t_DPadpt,y_DPadpt] = RungeKutta_Dormand_Prince_ode45(Vct,0,16, 1/200000, 10000, passofixo);
+[T_DPadpt,Y_DPadpt] = RungeKutta_Dormand_Prince_ode45(Vct,x0,y0, h, n, passofixo);
+
 
 figure;
-plot(t_euler,y_euler,'--ob','markersize',1,  t_emelhorado,y_emelhorado,'--*k','markersize',1,  t_emodify,y_emodify,'-xm','markersize',1,  t_f12,y_f12, '--*b','markersize',1, t_f45,y_f45,'-*m','markersize',1,  t_DPfixo, y_DPfixo,':+c','markersize',1,  t_DPadpt,y_DPadpt,'-vr','markersize',1);                  
-legend('Euler','EulerMelhorado','EulerModificado','Fehlberg12','Fehlberg45','DormanPriceODE45FIXO','DormanPriceODE45ADPT','location','northwest');
+plot(T_e,Y_e,'-b','markersize',1,  T_eme,Y_eme,'-k','markersize',1,  T_emo,Y_emo,'-m','markersize',1,  T_fb12,Y_fb12, '-g','markersize',1,T_fb45,Y_fb45,'-w','markersize',1, T_DPfixo,Y_DPfixo,'-c','markersize',1,  T_DPadpt,Y_DPadpt,'-r','markersize',1);                  
+title("Fonte DC",'fontsize',15)
+axis([0 0.05 0 20]);
+xlabel('t(s)','fontsize',15);
+ylabel('Vc(t)[V]','fontsize',15);
+legend('Vc = 7.5V','Euler','EulerMelhorado','EulerModificado','Fehlberg12','Fehlberg45','DormanPriceODE45FIXO','DormanPriceODE45ADPT','location','northwest');
 hold on;
 grid on;
+
+
+%------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\
+
