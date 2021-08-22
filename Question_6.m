@@ -33,6 +33,7 @@ for i=1:length(x)
   [X_adpt_a, F_adpt_a] = RungeKutta_Dormand_Prince_ode45(func1, x0, y0, h, n, passofixo );
 end
 
+  figure
   semilogy(x,funcv1(X)-Y_a,'*-k', x,funcv1(X)-A_a,'-r','linewidth',2,  x,funcv1(X)-B_a,'-db',  x,funcv1(X)-C_a,'--py','linewidth',2,  x,funcv1(X)-D_a,'*d',  x,funcv1(X)-E_a,'-+g', X_adpt_a, funcv1(X_adpt_a)-F_adpt_a,'-oc'); 
   title("PVI : y' = ln(x + 1), com x0=0,y0=1",'fontsize',20)
   xlabel('x','fontsize',20);
@@ -56,6 +57,7 @@ for i=1:length(x)
   passofixo = false;
   [X_adpt_b, F_adpt_b] = RungeKutta_Dormand_Prince_ode45(func2, x0, y0, h, n, passofixo );
 end
+
   figure
   semilogy(x, abs(funcv2(X)-Y_b),'*-k', x,abs(funcv2(X)-A_b),'-r','linewidth',2,  x,abs(funcv2(X)-B_b),'-db',  x,abs(funcv2(X)-C_b),'--py','linewidth',2,  x,abs(funcv2(X)-D_b),'*d',  x,abs(funcv2(X)-E_b),'-+g', X_adpt_b,abs(funcv2(X_adpt_b)-F_adpt_b),'-oc');    
   title("PVI : y’=y*(x²-1), com x0=0,y0=1",'fontsize',20)

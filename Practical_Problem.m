@@ -27,6 +27,6 @@ title("Fonte DC",'fontsize',15)
 axis([0 0.05 0 20]);
 xlabel('t(s)','fontsize',15);
 ylabel('Vc(t)[V]','fontsize',15);
-legend('Vc = 7.5V','Euler','EulerMelhorado','EulerModificado','Fehlberg12','Fehlberg45','DormanPriceODE45FIXO','DormanPriceODE45ADPT','location','northwest');
+legend('Euler','EulerMelhorado','EulerModificado','Fehlberg12','Fehlberg45','DormanPriceODE45FIXO','DormanPriceODE45ADPT','location','northwest');
 hold on;
 grid on;

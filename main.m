@@ -34,7 +34,8 @@ fprintf ('\n\nSoluÃ§Ã£o da QuestÃ£o 2 : Converta a soluÃ§Ëœao em uma funÃ§Ã£o nË
 %------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\
 
 
-fprintf ('\n\nSoluÃ§Ã£o da QuestÃ£o 3 : Discretize a variÃ¡vel independente a partir de x0, calcule o valor da funÃ§Ëœao analÃ­tica e desenhe:.\n\n');
+
+fprintf ('\n\nSolução da Questão 3 : Discretize a variável independente a partir de x0, calcule o valor da funç˜ao analítica e desenhe:.\n\n');
 
 
 func1 = @(x,y) y*log(x+1); % Primeira EDO
@@ -51,7 +52,7 @@ func3 = @(x,y) 1-(y/x); % Terceira EDO
   xx3 = 1:0.1:2;
   
   
-%%%_ - _ - __ - _ - __ - _ - _Primeira FunÃ§Ã£o_ - _ - __ - _ - __ - _ - _
+%%%_ - _ - __ - _ - __ - _ - _Primeira Função_ - _ - __ - _ - __ - _ - _
 
 
 for i=1:length(xx)
@@ -65,7 +66,6 @@ for i=1:length(xx)
   passofixo = false;
   [X_adpt_a, F_adpt_a] = RungeKutta_Dormand_Prince_ode45(func1, x0, y0, h, n, passofixo );
 end
-  figure
   plot(xx,Y_a,'--*k', xx,A_a,'-r',  xx,B_a,'--b','linewidth',2,  xx,C_a,'--y','linewidth',2,  xx,D_a,'--*d',  xx,E_a,'--g','linewidth',3, X_adpt_a, F_adpt_a,'--*m');
   title("PVI : y' = ln(x + 1), com x0=0,y0=1",'fontsize',20)
   xlabel('x','fontsize',20);
@@ -75,7 +75,7 @@ end
   hold on;
   
   
-%%%_ - _ - __ - _ - __ - _ - _Segunda FunÃ§Ã£o_ - _ - __ - _ - __ - _ - _
+%%%_ - _ - __ - _ - __ - _ - _Segunda Função_ - _ - __ - _ - __ - _ - _
 
 
 for i=1:length(xx)
@@ -91,7 +91,7 @@ for i=1:length(xx)
 end
   figure
   plot(xx,Y_b,'--*k', xx,A_b,'-r',  xx,B_b,'--b','linewidth',2,  xx,C_b,'--y','linewidth',2,  xx,D_b,'--*d',  xx,E_b,'--g','linewidth',3, X_adpt_b, F_adpt_b,'--*m');
-  title("PVI : yâ€™=y*(xÂ²-1), com x0=0,y0=1",'fontsize',20)
+  title("PVI : y’=y*(x²-1), com x0=0,y0=1",'fontsize',20)
   xlabel('x','fontsize',20);
   ylabel('y','fontsize',20);
   grid on;
@@ -99,7 +99,7 @@ end
   hold on;
 
 
-%%%% _ - _ - __ - _ - __ - _ - _Terceira FunÃ§Ã£o_ - _ - __ - _ - __ - _ - _
+%%%% _ - _ - __ - _ - __ - _ - _Terceira Função_ - _ - __ - _ - __ - _ - _
 
 
 for i=1:length(xx)
@@ -115,7 +115,7 @@ for i=1:length(xx)
 end
   figure
   plot(xx3,Y_c,'--*k', xx3,A_c,'-r',  xx3,B_c,'--b','linewidth',2,  xx3,C_c,'--y','linewidth',2,  xx3,D_c,'--*d',  xx3,E_c,'--g','linewidth',3, X_adpt_c, F_adpt_c,'--*m');
-  title("PVI : yâ€™=1-y/x, com x0=1,y0=1",'fontsize',20)
+  title("PVI : y’=1-y/x, com x0=1,y0=1",'fontsize',20)
   xlabel('x','fontsize',20);
   ylabel('y','fontsize',20);
   grid on;
@@ -228,15 +228,16 @@ printTabXY( X, 'X', Y, 'Y', f, 'Dormand-Prince - Passo adaptativo' );
 
 
 
-fprintf ('\n\nSoluÃ§Ã£o da QuestÃ£o 5 : Insira os pontos (xi, yi) de cada mÃ©todo no grÃ¡fico junto com a funÃ§Ëœao verdadeira y(x) :\n\n');
+
+fprintf ('\n\nSolução da Questão 5 : Insira os pontos (xi, yi) de cada método no gráfico junto com a funç˜ao verdadeira y(x) :\n\n');
 
 
 func1 = @(x,y) y*log(x+1); % Primeira EDO
-funcv1 = @(x) (x + 1) .* exp (x .* (log (x + 1) - 1)); %SoluÃ§Ã£o analitica nÃ£o simbolica primeira EDO
+funcv1 = @(x) (x + 1) .* exp (x .* (log (x + 1) - 1)); %Solução analitica não simbolica primeira EDO
 func2 = @(x,y) y*(x**2 -1); % Segunda EDO
-funcv2 = @(x) exp (x .* (x .^ 2 - 3) / 3);%SoluÃ§Ã£o analitica nÃ£o simbolica segunda EDO
+funcv2 = @(x) exp (x .* (x .^ 2 - 3) / 3);%Solução analitica não simbolica segunda EDO
 func3 = @(x,y) 1-(y/x); % Terceira EDO
-funcv3 = @(x) x / 2; %SoluÃ§Ã£o analitica nÃ£o simbolica terceira EDO
+funcv3 = @(x) x / 2; %Solução analitica não simbolica terceira EDO
 
   x0 = 0;
   y0 = 1;
@@ -248,7 +249,7 @@ funcv3 = @(x) x / 2; %SoluÃ§Ã£o analitica nÃ£o simbolica terceira EDO
   xx3 = 1:0.1:2;
   
   
-%%%_ - _ - __ - _ - __ - _ - _Primeira FunÃ§Ã£o_ - _ - __ - _ - __ - _ - _
+%%%_ - _ - __ - _ - __ - _ - _Primeira Função_ - _ - __ - _ - __ - _ - _
 
 
 for i=1:length(x)
@@ -273,7 +274,7 @@ end
   hold on;
 
 
-%%%_ - _ - __ - _ - __ - _ - _Segunda FunÃ§Ã£o_ - _ - __ - _ - __ - _ - _
+%%%_ - _ - __ - _ - __ - _ - _Segunda Função_ - _ - __ - _ - __ - _ - _
 
 
 for i=1:length(x)
@@ -287,10 +288,9 @@ for i=1:length(x)
   passofixo = false;
   [X_adpt_b, F_adpt_b] = RungeKutta_Dormand_Prince_ode45(func2, x0, y0, h, n, passofixo );
 end
-
   figure
   plot(x,funcv2(x),'--m','linewidth',3,x,Y_b,'*-k', x,A_b,'-r','linewidth',2,  x,B_b,'-db',  x,C_b,'--py','linewidth',2,  x,D_b,'*d',  x,E_b,'+g','linewidth',2, X_adpt_b, F_adpt_b,'-oc');
-  title("PVI : yâ€™=y*(xÂ²-1), com x0=0,y0=1",'fontsize',20)
+  title("PVI : y’=y*(x²-1), com x0=0,y0=1",'fontsize',20)
   xlabel('x','fontsize',20);
   ylabel('y','fontsize',20);
   grid on;
@@ -298,7 +298,7 @@ end
   hold on;
 
 
-%%%% _ - _ - __ - _ - __ - _ - _Terceira FunÃ§Ã£o_ - _ - __ - _ - __ - _ - _
+%%%% _ - _ - __ - _ - __ - _ - _Terceira Função_ - _ - __ - _ - __ - _ - _
 
 
 for i=1:length(xx3)
@@ -315,7 +315,7 @@ end
 
 figure
 plot(xx3,funcv3(xx3),'--m',xx3,Y_c,'--*k', xx3,A_c,'-r',  xx3,B_c,'--b','linewidth',2,  xx3,C_c,'--y','linewidth',2,  xx3,D_c,'--*d',  xx3,E_c,'--g','linewidth',3, X_adpt_c, F_adpt_c,'-oc');
-title("PVI : yâ€™=1-y/x, com x0=1,y0=0",'fontsize',20)
+title("PVI : y’=1-y/x, com x0=1,y0=0",'fontsize',20)
 xlabel('x','fontsize',20);
 ylabel('y','fontsize',20);
 grid on;
@@ -324,19 +324,21 @@ hold on;
   
   
   
+  
 %------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\
 
 
 
-fprintf ('\n\nSoluÃ§Ã£o da QuestÃ£o 6 : Gere um no grÃ¡fico de erros de cada mÃ©todo relativo Ã  funÃ§Ëœao verdadeira y(x), com eixo y logarÃ­tmic:.\n\n');
+
+fprintf ('\n\nSolução da Questão 6 : Gere um no gráfico de erros de cada método relativo à funç˜ao verdadeira y(x), com eixo y logarítmic:.\n\n');
 
 
 func1 = @(x,y) y*log(x+1); % Primeira EDO
-funcv1 = @(x) (x + 1) .* exp (x .* (log (x + 1) - 1)); %SoluÃ§Ã£o analitica nÃ£o simbolica primeira EDO
+funcv1 = @(x) (x + 1) .* exp (x .* (log (x + 1) - 1)); %Solução analitica não simbolica primeira EDO
 func2 = @(x,y) y*(x**2 -1); % Segunda EDO
-funcv2 = @(x) exp (x .* (x .^ 2 - 3) / 3);%SoluÃ§Ã£o analitica nÃ£o simbolica segunda EDO
+funcv2 = @(x) exp (x .* (x .^ 2 - 3) / 3);%Solução analitica não simbolica segunda EDO
 func3 = @(x,y) 1-(y/x); % Terceira EDO
-funcv3 = @(x) x / 2; %SoluÃ§Ã£o analitica nÃ£o simbolica terceira EDO
+funcv3 = @(x) x / 2; %Solução analitica não simbolica terceira EDO
 
   x0 = 0;
   y0 = 1;
@@ -347,7 +349,7 @@ funcv3 = @(x) x / 2; %SoluÃ§Ã£o analitica nÃ£o simbolica terceira EDO
   x = 0:0.1:1;
   xx3 = 1:0.1:2;
   
-%%%_ - _ - __ - _ - __ - _ - _Primeira FunÃ§Ã£o_ - _ - __ - _ - __ - _ - _
+%%%_ - _ - __ - _ - __ - _ - _Primeira Função_ - _ - __ - _ - __ - _ - _
 
 
 for i=1:length(x)
@@ -361,7 +363,7 @@ for i=1:length(x)
   passofixo = false;
   [X_adpt_a, F_adpt_a] = RungeKutta_Dormand_Prince_ode45(func1, x0, y0, h, n, passofixo );
 end
-  
+
   figure
   semilogy(x,funcv1(X)-Y_a,'*-k', x,funcv1(X)-A_a,'-r','linewidth',2,  x,funcv1(X)-B_a,'-db',  x,funcv1(X)-C_a,'--py','linewidth',2,  x,funcv1(X)-D_a,'*d',  x,funcv1(X)-E_a,'-+g', X_adpt_a, funcv1(X_adpt_a)-F_adpt_a,'-oc'); 
   title("PVI : y' = ln(x + 1), com x0=0,y0=1",'fontsize',20)
@@ -372,7 +374,7 @@ end
   hold on;
 
 
-%%%_ - _ - __ - _ - __ - _ - _Segunda FunÃ§Ã£o_ - _ - __ - _ - __ - _ - _
+%%%_ - _ - __ - _ - __ - _ - _Segunda Função_ - _ - __ - _ - __ - _ - _
 
 
 for i=1:length(x)
@@ -389,7 +391,7 @@ end
 
   figure
   semilogy(x, abs(funcv2(X)-Y_b),'*-k', x,abs(funcv2(X)-A_b),'-r','linewidth',2,  x,abs(funcv2(X)-B_b),'-db',  x,abs(funcv2(X)-C_b),'--py','linewidth',2,  x,abs(funcv2(X)-D_b),'*d',  x,abs(funcv2(X)-E_b),'-+g', X_adpt_b,abs(funcv2(X_adpt_b)-F_adpt_b),'-oc');    
-  title("PVI : yâ€™=y*(xÂ²-1), com x0=0,y0=1",'fontsize',20)
+  title("PVI : y’=y*(x²-1), com x0=0,y0=1",'fontsize',20)
   xlabel('x','fontsize',20);
   ylabel('y','fontsize',20);
   grid on;
@@ -397,7 +399,7 @@ end
   hold on;
  
 
-%%%% _ - _ - __ - _ - __ - _ - _Terceira FunÃ§Ã£o_ - _ - __ - _ - __ - _ - _
+%%%% _ - _ - __ - _ - __ - _ - _Terceira Função_ - _ - __ - _ - __ - _ - _
 
 
 for i=1:length(xx3)
@@ -414,7 +416,7 @@ end
 
   figure
   semilogy(xx3,funcv3(x)-Y_c,'-*k', xx3,funcv3(x)-A_c,'-r','linewidth',2,  xx3,funcv3(x)-B_c,'-db',  xx3,funcv3(x)-C_c,'--py',  xx3,funcv3(x)-D_c,'*d',  xx3,funcv3(x)-E_c,'-+g', X_adpt_c, funcv3(X_adpt_c)-F_adpt_c,'-oc');  
-  title("PVI : yâ€™=1-y/x, com x0=1,y0=0",'fontsize',20)
+  title("PVI : y’=1-y/x, com x0=1,y0=0",'fontsize',20)
   xlabel('x','fontsize',20);
   ylabel('y','fontsize',20);
   grid on;
@@ -422,12 +424,12 @@ end
   hold on
   
   
-
+  
 %------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\
 
  
 
-printf ('\n\n\nSoluÃ§Ã£o da QuestÃ£o 7 e 8: Mostre uma tabela com os valores de cada mÃ©todo e seus erros respectivamente: \n\n');
+printf ('\n\n\nSoluÃ§Ã£o da QuestÃ£o 7 e 8: Mostre uma tabela com os valores de cada método e seus erros respectivamente: \n\n');
 
 
 func1 = @(x,y) y*log(x+1); % Primeira EDO
@@ -487,7 +489,6 @@ end
 
 
 fprintf('\n\n\nPVI: ===> Funcao: y(x)= exp (x .* (x .^ 2 - 3) / 3)\n\n');
-
 fprintf('%8s | %12s | %12s | %12s | %12s | %12s | %12s | %12s \n', 'X','Valor Ex.','Euler', 'Euler Mel.', 'Euler Mod.', 'Fehlb12', 'Fehlb45', 'ODE45 fixo');
 fprintf('-----------------------------------------------------------------------------------------------------------------\n');
 
@@ -558,8 +559,8 @@ end
 %------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\
 
 
-fprintf("Problema Pratico: : Use todos os mÃ©todos de resoluÃ§Ëœao de uma EDO da parte teÃ³rica deste trabalho para determinar a tensËœao Vc(t).")
 
+fprintf("\n\nProblema Pratico: : Use todos os métodos de resoluç˜ao de uma EDO da parte teórica deste trabalho para determinar a tens˜ao Vc(t).")
 
 Vac= @(t) abs(18*cos(120*pi*t));
 Vc_rms= @(t,v) ifelse(v<=Vac(t)-2, (25*Vac(t)-50.1-25*v)/100e-6, -0.1/(100e-6));
@@ -570,6 +571,7 @@ x0 = 0;
 y0 = 16;
 h = 1/200000;
 n = 10000;
+
 
 [T_e,Y_e] = Euler(Vct,x0,y0, h, n);
 [T_eme,Y_eme] = EulerMelhorado(Vct,x0,y0, h, n);
@@ -588,10 +590,10 @@ title("Fonte DC",'fontsize',15)
 axis([0 0.05 0 20]);
 xlabel('t(s)','fontsize',15);
 ylabel('Vc(t)[V]','fontsize',15);
-legend('Vc = 7.5V','Euler','EulerMelhorado','EulerModificado','Fehlberg12','Fehlberg45','DormanPriceODE45FIXO','DormanPriceODE45ADPT','location','northwest');
+legend('Euler','EulerMelhorado','EulerModificado','Fehlberg12','Fehlberg45','DormanPriceODE45FIXO','DormanPriceODE45ADPT','location','northwest');
 hold on;
 grid on;
 
 
-%------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\
+
 
