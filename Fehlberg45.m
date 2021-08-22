@@ -16,7 +16,7 @@ function [X, Y] = Fehlberg45(f, x0, y0, h, n )
 %%%      |25/216          0       1408/2565   2197/4104     -1/5           0	
 %%%
     s = 6; 
-    butcher.isEmbedded = false;
+    butcher.isEmbedded = true;
     butcher.a = zeros(s,s);
     butcher.a(2,1) = 1/4;
     butcher.a(3,1) = 3.0/32; butcher.a(3,2) = 9.0/32;
