@@ -1,17 +1,9 @@
 %%%%                                                  NOTAS DE ATUALIZAÇÃO!!!!
 %%%%
-%%%%          ADICIONADO Q5, Q6, Q7 e Q8 (Imbutidas).
-%%%%          ADICIONADO DOIS AMBIENTES DE TESTE O Testes QUE JÁ TINHA E O test PARA MELHOR FLEXIBILIDADE.COM ISSO FORAM EXCLUIDOS OS ARQUIVOS q3 E O PLOT_TABELA_TEST
-%%%%          MELHORIAS NA VISUALIZAÇÃO DO CODE E PLOTAGEM.
-%%%%          ACERTOS NO CODIGO NAS QUESTOES 3, 5, 6, 7.
-%%%%
-%%%%
-%%%%          PROBLEMAS NA QUESTAO 6, O MODULO DO ERRO NÃO ESTÁ FUNCIONANDO, APENAS DO PLOT ESTA CERTO FICA DANDO MENSAGENS NA JANELA DE COMANDO,POIS O NUMERO DA NEGATIVO E NÃO EXISTE LOG NEGATIVO.
-%%%%          PROBLEMAS NA QUESTÃO 6, NÃO CONSEGUI RESOLVER O PROBLEMA DO ODE45 PASSO ADPT O NÃO ESTÁ PLOTANDO.
-%%%%          
-%%%%          VERIFICAR FUNÇÃO Fehlberg45, ACHAR RESOLUÇÃO DO PROBLEMA.
-%%%%          VERIFICAÇÃO DAS OUTRAS FUNÇÕES PARA MELHOR VISUALIZAÇÃO DA JANELA DE COMANDOS.
-
+%%%%         FINALIZADA!!!
+%%%%         CADA QUESTÃO FOI ADICIONADA COMO UM SCRIPT PRÓPRIO PRA FACILIAR O TRABALHO
+%%%%         MELHORIA NA VIZUALIZAÇÃO E PLOTAGEM DO CODIGO
+%%%%     
 
 
 fprintf('Solução da Questão 1 : Determine a soluç˜ao analítica y(x) de cada PVI. \n\n');
@@ -73,6 +65,7 @@ for i=1:length(xx)
   passofixo = false;
   [X_adpt_a, F_adpt_a] = RungeKutta_Dormand_Prince_ode45(func1, x0, y0, h, n, passofixo );
 end
+  figure
   plot(xx,Y_a,'--*k', xx,A_a,'-r',  xx,B_a,'--b','linewidth',2,  xx,C_a,'--y','linewidth',2,  xx,D_a,'--*d',  xx,E_a,'--g','linewidth',3, X_adpt_a, F_adpt_a,'--*m');
   title("PVI : y' = ln(x + 1), com x0=0,y0=1",'fontsize',20)
   xlabel('x','fontsize',20);
@@ -234,6 +227,7 @@ printTabXY( X, 'X', Y, 'Y', f, 'Dormand-Prince - Passo adaptativo' );
 %------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\
 
 
+
 fprintf ('\n\nSolução da Questão 5 : Insira os pontos (xi, yi) de cada método no gráfico junto com a funç˜ao verdadeira y(x) :\n\n');
 
 
@@ -268,6 +262,7 @@ for i=1:length(x)
   passofixo = false;
   [X_adpt_a, F_adpt_a] = RungeKutta_Dormand_Prince_ode45(func1, x0, y0, h, n, passofixo );
 end
+  
   figure
   hold off;
   plot(x,funcv1(X),'--m','linewidth',3,x,Y_a,'*-k', x,A_a,'-r','linewidth',2,  x,B_a,'-db',  x,C_a,'--py','linewidth',2,  x,D_a,'*d',  x,E_a,'+g','linewidth',2, X_adpt_a, F_adpt_a,'-oc');
@@ -293,6 +288,7 @@ for i=1:length(x)
   passofixo = false;
   [X_adpt_b, F_adpt_b] = RungeKutta_Dormand_Prince_ode45(func2, x0, y0, h, n, passofixo );
 end
+
   figure
   plot(x,funcv2(x),'--m','linewidth',3,x,Y_b,'*-k', x,A_b,'-r','linewidth',2,  x,B_b,'-db',  x,C_b,'--py','linewidth',2,  x,D_b,'*d',  x,E_b,'+g','linewidth',2, X_adpt_b, F_adpt_b,'-oc');
   title("PVI : y’=y*(x²-1), com x0=0,y0=1",'fontsize',20)
@@ -328,7 +324,9 @@ legend('y(x)= x / 2','Euler','EulerMelhorado','EulerModificado','Fehlberg12','Fe
 hold on;
   
   
+  
 %------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\
+
 
 
 fprintf ('\n\nSolução da Questão 6 : Gere um no gráfico de erros de cada método relativo à funç˜ao verdadeira y(x), com eixo y logarítmic:.\n\n');
@@ -364,8 +362,9 @@ for i=1:length(x)
   passofixo = false;
   [X_adpt_a, F_adpt_a] = RungeKutta_Dormand_Prince_ode45(func1, x0, y0, h, n, passofixo );
 end
-
-  semilogy(x,funcv1(X)-Y_a,'*-k', x,funcv1(X)-A_a,'-r','linewidth',2,  x,funcv1(X)-B_a,'-db',  x,funcv1(X)-C_a,'--py','linewidth',2,  x,funcv1(X)-D_a,'*d',  x,funcv1(X)-E_a,'-+g');%, X_adpt_a, funcv1(X)-F_adpt_a,'-oc');   ------RESOLVER-----
+  
+  figure
+  semilogy(x,funcv1(X)-Y_a,'*-k', x,funcv1(X)-A_a,'-r','linewidth',2,  x,funcv1(X)-B_a,'-db',  x,funcv1(X)-C_a,'--py','linewidth',2,  x,funcv1(X)-D_a,'*d',  x,funcv1(X)-E_a,'-+g', X_adpt_a, funcv1(X_adpt_a)-F_adpt_a,'-oc'); 
   title("PVI : y' = ln(x + 1), com x0=0,y0=1",'fontsize',20)
   xlabel('x','fontsize',20);
   ylabel('y','fontsize',20);
@@ -388,9 +387,9 @@ for i=1:length(x)
   passofixo = false;
   [X_adpt_b, F_adpt_b] = RungeKutta_Dormand_Prince_ode45(func2, x0, y0, h, n, passofixo );
 end
-  figure
 
-  semilogy(x, abs(funcv2(X)-Y_b),'*-k', x,abs(funcv2(X)-A_b),'-r','linewidth',2,  x,abs(funcv2(X)-B_b),'-db',  x,abs(funcv2(X)-C_b),'--py','linewidth',2,  x,abs(funcv2(X)-D_b),'*d',  x,abs(funcv2(X)-E_b),'-+g');%, X_adpt_b,abs(funcv2(X)-F_adpt_b),'-oc');    ------RESOLVER-----   
+  figure
+  semilogy(x, abs(funcv2(X)-Y_b),'*-k', x,abs(funcv2(X)-A_b),'-r','linewidth',2,  x,abs(funcv2(X)-B_b),'-db',  x,abs(funcv2(X)-C_b),'--py','linewidth',2,  x,abs(funcv2(X)-D_b),'*d',  x,abs(funcv2(X)-E_b),'-+g', X_adpt_b,abs(funcv2(X_adpt_b)-F_adpt_b),'-oc');    
   title("PVI : y’=y*(x²-1), com x0=0,y0=1",'fontsize',20)
   xlabel('x','fontsize',20);
   ylabel('y','fontsize',20);
@@ -399,10 +398,8 @@ end
   hold on;
  
 
- 
 %%%% _ - _ - __ - _ - __ - _ - _Terceira Função_ - _ - __ - _ - __ - _ - _
 
-x = 1:0.1:2;
 
 for i=1:length(xx3)
   [X, Y_c] = Euler(func3, x0_c, y0, h, n );
@@ -416,8 +413,8 @@ for i=1:length(xx3)
   [X_adpt_c, F_adpt_c] = RungeKutta_Dormand_Prince_ode45(func3, x0_c, y0, h, n, passofixo );
 end
 
-figure
-  semilogy(xx3,funcv3(x)-Y_c,'-*k', xx3,funcv3(x)-A_c,'-r','linewidth',2,  xx3,funcv3(x)-B_c,'-db',  xx3,funcv3(x)-C_c,'--py',  xx3,funcv3(x)-D_c,'*d',  xx3,funcv3(x)-E_c,'-+g');%, X_adpt_c, funcv3(x)-F_adpt_c,'-oc');     ------RESOLVER-----
+  figure
+  semilogy(xx3,funcv3(x)-Y_c,'-*k', xx3,funcv3(x)-A_c,'-r','linewidth',2,  xx3,funcv3(x)-B_c,'-db',  xx3,funcv3(x)-C_c,'--py',  xx3,funcv3(x)-D_c,'*d',  xx3,funcv3(x)-E_c,'-+g', X_adpt_c, funcv3(X_adpt_c)-F_adpt_c,'-oc');  
   title("PVI : y’=1-y/x, com x0=1,y0=0",'fontsize',20)
   xlabel('x','fontsize',20);
   ylabel('y','fontsize',20);
@@ -425,11 +422,12 @@ figure
   legend('Euler','EulerMelhorado','EulerModificado','Fehlberg12','Fehlberg45','DormanPriceODE45FIXO','DormanPriceODE45APDT','location','northwest');
   hold on
   
+  
 
 %------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\
 
  
-fprintf ('\n\n\nSolução da Questão 7 : Mostre uma tabela com os valores de cada método:\n\n');
+printf ('\n\n\nSolução da Questão 7 : Mostre uma tabela com os valores de cada método:\n\n');
 
 
 func1 = @(x,y) y*log(x+1); % Primeira EDO
@@ -457,6 +455,7 @@ fprintf('PVI: ===> Funcao: y(x)= (x + 1) .* exp (x .* (log (x + 1) - 1))\n\n')
 fprintf('%8s | %12s | %12s | %12s | %12s | %12s | %12s | %12s \n', 'X','Valor Ex.','Euler', 'Euler Mel.', 'Euler Mod.', 'Fehlb12', 'Fehlb45', 'ODE45 fixo');
 fprintf('-----------------------------------------------------------------------------------------------------------------\n');
 
+
 for i=1:length(xx)
   [X, Y_a] = Euler(func1, x0, y0, h, n );
   [X, A_a] = EulerMelhorado(func1, x0, y0, h, n );
@@ -470,6 +469,7 @@ end
 
 
 fprintf('\nErros\n\n');
+
 
 for i=1:length(xx)
   [X, Y_a] = Euler(func1, x0, y0, h, n );
@@ -523,9 +523,9 @@ end
 
 
 fprintf('\n\nPVI: ===> Funcao: y(x)= x / 2\n\n');
-
 fprintf('%8s | %12s | %12s | %12s | %12s | %12s | %12s | %12s \n', 'X','Valor Ex.','Euler', 'Euler Mel.', 'Euler Mod.', 'Fehlb12', 'Fehlb45', 'ODE45 fixo');
 fprintf('------------------------------------------------------------------------------------------------------------------\n');
+
 
 for i=1:length(xx3)
   [X, Y_c] = Euler(func3, x0_c, y0, h, n );

@@ -26,6 +26,7 @@ fprintf('PVI: ===> Funcao: y(x)= (x + 1) .* exp (x .* (log (x + 1) - 1))\n\n')
 fprintf('%8s | %12s | %12s | %12s | %12s | %12s | %12s | %12s \n', 'X','Valor Ex.','Euler', 'Euler Mel.', 'Euler Mod.', 'Fehlb12', 'Fehlb45', 'ODE45 fixo');
 fprintf('-----------------------------------------------------------------------------------------------------------------\n');
 
+
 for i=1:length(xx)
   [X, Y_a] = Euler(func1, x0, y0, h, n );
   [X, A_a] = EulerMelhorado(func1, x0, y0, h, n );
@@ -39,6 +40,7 @@ end
 
 
 fprintf('\nErros\n\n');
+
 
 for i=1:length(xx)
   [X, Y_a] = Euler(func1, x0, y0, h, n );
@@ -92,9 +94,9 @@ end
 
 
 fprintf('\n\nPVI: ===> Funcao: y(x)= x / 2\n\n');
-
 fprintf('%8s | %12s | %12s | %12s | %12s | %12s | %12s | %12s \n', 'X','Valor Ex.','Euler', 'Euler Mel.', 'Euler Mod.', 'Fehlb12', 'Fehlb45', 'ODE45 fixo');
 fprintf('------------------------------------------------------------------------------------------------------------------\n');
+
 
 for i=1:length(xx3)
   [X, Y_c] = Euler(func3, x0_c, y0, h, n );
