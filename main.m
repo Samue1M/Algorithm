@@ -427,7 +427,7 @@ end
 %------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\------------------------\\
 
  
-printf ('\n\n\nSolução da Questão 7 : Mostre uma tabela com os valores de cada método:\n\n');
+printf ('\n\n\nSolução da Questão 7 e 8: Mostre uma tabela com os valores de cada método junto com seus respectivos erros:\n\n');
 
 
 func1 = @(x,y) y*log(x+1); % Primeira EDO
